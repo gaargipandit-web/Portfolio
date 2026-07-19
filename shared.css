@@ -1,0 +1,410 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600;700&display=swap");
+
+/* Shared tokens give recurring site elements one dependable visual language. */
+:root {
+  --site-cream: #fff8e9;
+  --site-gold: #f2c166;
+  --site-line: rgba(255, 255, 255, 0.16);
+  --site-content-width: 140rem;
+  --site-gutter: clamp(1rem, 1vw, 4rem);
+}
+
+/* A small baseline prevents padding and borders from unexpectedly changing sizes. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* A stable scrollbar avoids horizontal layout shifts between short and long pages. */
+html {
+  overflow-y: scroll;
+  scroll-padding-top: 7rem;
+  scrollbar-color: rgba(242, 193, 102, 0.72) #12051f;
+  scrollbar-width: thin;
+}
+
+body {
+  overflow-x: clip;
+}
+
+html::-webkit-scrollbar {
+  width: 0.75rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: #12051f;
+}
+
+html::-webkit-scrollbar-thumb {
+  border: 3px solid #12051f;
+  border-radius: 999px;
+  background: linear-gradient(#f2c166, #a864d6);
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(#ffe2a8, #c98aee);
+}
+
+img {
+  max-width: 100%;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* The gold focus ring and skip link keep keyboard navigation easy to follow. */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--site-gold);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 10000;
+  translate: 0 -180%;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  color: #1a0b24;
+  background: var(--site-cream);
+  font: 700 0.9rem/1 Inter, sans-serif;
+  text-decoration: none;
+  transition: translate 160ms ease;
+}
+
+.skip-link:focus {
+  translate: 0;
+}
+
+/* Sticky navigation keeps the portfolio structure available on long project pages. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  color: var(--site-cream);
+  background: linear-gradient(100deg, rgba(0, 0, 69, 0.98), rgba(69, 0, 69, 0.98));
+  border-bottom: 1px solid var(--site-line);
+  box-shadow: 0 0.7rem 2rem rgba(0, 0, 0, 0.16);
+}
+
+.site-header__inner {
+  display: flex;
+  width: min(100%, var(--site-content-width));
+  min-height: 5.5rem;
+  margin-inline: auto;
+  padding: 0.9rem var(--site-gutter);
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.site-header__brand {
+  flex: 0 0 auto;
+  color: inherit;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.65rem, 4vw, 2.2rem);
+  font-weight: 600;
+  line-height: 0.95;
+  text-decoration: none;
+}
+
+/* The glowing “i” is a small signature detail carried across the entire site. */
+.glow-i {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+  text-shadow:
+    0 0 0.18em rgba(170, 170, 255, 0.95),
+    0 0 0.45em rgba(175, 100, 242, 0.8);
+}
+
+.glow-i::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 1.55em;
+  height: 1.55em;
+  left: 50%;
+  top: 42%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(170, 170, 255, 0.72) 0%,
+    rgba(175, 100, 242, 0.36) 32%,
+    transparent 70%
+  );
+  filter: blur(2px);
+  transform: translate(-50%, -65%);
+  pointer-events: none;
+}
+
+.site-header__subtitle {
+  display: block;
+  margin-top: 0.35rem;
+  font: 700 clamp(0.56rem, 1.6vw, 0.68rem)/1 Inter, sans-serif;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.site-header__nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.55rem;
+}
+
+.site-header__nav a {
+  flex: 0 0 auto;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--site-line);
+  border-radius: 999px;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.07);
+  font: 600 clamp(0.4rem, 1vw, 1.0rem)/1 Inter, sans-serif;
+  /*font: 600 1.0 rem/1 Inter, sans-serif;*/
+  text-decoration: none;
+  transition: background-color 160ms ease, border-color 160ms ease, translate 160ms ease;
+}
+
+.site-header__nav a:hover,
+.site-header__nav a[aria-current="page"] {
+  border-color: rgba(242, 193, 102, 0.52);
+  background: rgba(242, 193, 102, 0.17);
+}
+
+.site-header__nav a:hover {
+  translate: 0 -2px;
+}
+
+/* A restrained shared footer closes every project without competing with its theme. */
+.site-footer {
+  position: relative;
+  z-index: 10;
+  padding: 1.25rem var(--site-gutter);
+  color: rgba(255, 248, 233, 0.78);
+  background: #0c0315;
+  border-top: 1px solid var(--site-line);
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+  color: inherit;
+  font: 500 0.82rem/1.5 Inter, sans-serif;
+}
+
+.media-center {
+  text-align: center;
+}
+
+/* A real button opens the preview and retains a clear keyboard focus indicator. */
+.preview-trigger {
+  appearance: none;
+  display: inline-block;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  line-height: 0;
+  vertical-align: top;
+  cursor: zoom-in;
+}
+
+.preview-trigger img {
+  display: block;
+}
+
+/*
+  Native HTML popovers open without changing the URL, so image viewing does not
+  add entries to Back-button history. The browser also supplies Escape handling.
+*/
+.preview {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  width: fit-content;
+  height: fit-content;
+  max-width: none;
+  max-height: none;
+  margin: auto;
+  padding: 0;
+  border: 0;
+  overflow: visible;
+  color: inherit;
+  background: transparent;
+  opacity: 0;
+  transition:
+    opacity 180ms ease,
+    display 180ms allow-discrete,
+    overlay 180ms allow-discrete;
+}
+
+.preview:popover-open {
+  display: block;
+  opacity: 1;
+}
+
+@starting-style {
+  .preview:popover-open {
+    opacity: 0;
+  }
+}
+
+.preview::backdrop {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(126, 72, 174, 0.22), transparent 42%),
+    rgba(8, 3, 15, 0.96);
+  backdrop-filter: blur(12px);
+  opacity: 1;
+}
+
+/* The figure lets the caption align with the image instead of the viewport. */
+.preview__figure {
+  position: relative;
+  margin: 0;
+  line-height: 0;
+}
+
+.preview img {
+  display: block;
+  width: auto;
+  max-width: min(92vw, 90rem);
+  height: auto;
+  max-height: calc(100vh - 7rem);
+  object-fit: contain;
+  border-radius: clamp(0.45rem, 1vw, 0.9rem);
+  box-shadow:
+    0 1.5rem 4rem rgba(0, 0, 0, 0.56),
+    0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+
+/*
+  The visible caption repeats the image's alt text for sighted visitors. It is
+  aria-hidden in the HTML so screen readers do not announce the same text twice.
+*/
+.preview__caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: clamp(0.7rem, 1.5vw, 1rem) clamp(0.9rem, 2vw, 1.35rem);
+  border-radius: 0 0 clamp(0.45rem, 1vw, 0.9rem) clamp(0.45rem, 1vw, 0.9rem);
+  color: #fff;
+  background: rgba(0, 0, 0, 0.72);
+  font: 500 clamp(0.82rem, 1.5vw, 1rem)/1.45 Inter, Arial, sans-serif;
+  letter-spacing: 0.01em;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(0.5rem);
+  transition: opacity 160ms ease, transform 160ms ease;
+  pointer-events: none;
+}
+
+.preview__figure:hover .preview__caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* The close control is deliberately large, high-contrast, and pleasant to hover. */
+.close {
+  appearance: none;
+  position: fixed;
+  top: clamp(1rem, 3vw, 1.75rem);
+  right: clamp(1rem, 3vw, 1.75rem);
+  z-index: 5001;
+  display: grid;
+  width: 3.25rem;
+  height: 3.25rem;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  color: var(--site-cream);
+  background: rgba(18, 5, 31, 0.76);
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.28);
+  font: 400 2.2rem/1 Inter, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.close:hover {
+  border-color: var(--site-gold);
+  color: #1a0b24;
+  background: var(--site-gold);
+  box-shadow:
+    0 0.6rem 1.75rem rgba(0, 0, 0, 0.34),
+    0 0 1.4rem rgba(242, 193, 102, 0.5);
+  transform: rotate(90deg) scale(1.08);
+}
+
+.close:active {
+  transform: rotate(90deg) scale(0.96);
+}
+
+body:has(.preview:popover-open) {
+  overflow: hidden;
+}
+
+/* On smaller screens, navigation wraps vertically and previews keep safe margins. */
+@media (max-width: 820px) {
+  html {
+    scroll-padding-top: 10rem;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .site-header__inner {
+    min-height: auto;
+    padding-block: 0.8rem;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .site-header__nav {
+    width: 100%;
+    padding-bottom: 0.15rem;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .site-header__nav a {
+    padding: 0.58rem 0.85rem;
+    font-size: 0.78rem;
+  }
+
+  .preview img {
+    max-width: calc(100vw - 1.5rem);
+    max-height: calc(100vh - 5.5rem);
+  }
+}
+
+/* Visitors who request reduced motion get the same design without animation. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

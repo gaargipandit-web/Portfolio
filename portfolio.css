@@ -1,0 +1,194 @@
+/*
+  Page-specific visual theme. Keep this file focused on this page's unique
+  colors, typography, backgrounds, and content layout. Shared navigation,
+  footer, scrollbar, focus states, and image previews live in shared.css.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;700&display=swap');
+
+/* Theme tokens make palette and image changes deliberate and consistent. */
+:root {
+  --cream: #fff8e9;
+  --soft: rgba(255, 248, 233, 0.78);
+  --gold: #f2c166;
+  --purple-deep: #12051f;
+}
+
+/* Border-box keeps padding and borders inside an element's declared size. */
+* { box-sizing: border-box; }
+
+/* The page canvas establishes the project's base color and reading type. */
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--cream);
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--purple-deep);
+}
+
+.portfolio-home {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.portfolio-home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background:
+    linear-gradient(90deg, rgba(17, 4, 31, 0.96) 0%, rgba(35, 7, 58, 0.64) 36%, rgba(24, 5, 44, 0.38) 100%),
+    radial-gradient(circle at 28% 68%, rgba(184, 211, 235, 0.45), transparent 20%),
+    radial-gradient(circle at 80% 15%, rgba(75, 8, 103, 0.55), transparent 35%),
+    url("assets/mandelbrot.png") center center / cover no-repeat;
+  transform: scale(1.02);
+}
+
+.portfolio-home::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 31% 72%, rgba(230, 243, 255, 0.22), transparent 18%),
+    radial-gradient(circle at 60% 50%, rgba(242, 193, 102, 0.10), transparent 38%),
+    linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.58));
+  pointer-events: none;
+}
+
+/* The hero uses viewport-relative sizing so its opening image feels immersive. */
+.mybanner {
+  position: relative;
+  z-index: 10;
+  width: min(34rem, 90vw);
+  margin-left: clamp(1.4rem, 6vw, 6rem);
+  margin-top: clamp(3rem, 20vh, 8rem);
+  padding: 1rem;
+}
+
+.mybanner h1 {
+
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(2.8rem, 8vw, 5rem);
+    line-height: 0.9;
+    margin: 0.35rem 0 1.4rem;
+    font-weight: 600;
+}
+
+.mybanner::after {
+  content: "";
+  display: block;
+  width: 4rem;
+  height: 2px;
+  margin-top: 1.6rem;
+  background: var(--gold);
+}
+
+/* Wide screens use an art-directed composition; the media query restores normal flow. */
+.project-spiral {
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  pointer-events: none;
+}
+
+.project-node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--cream);
+  text-decoration: none;
+  pointer-events: auto;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.project-node:hover {
+  transform: translateY(-5px) scale(1.03);
+  filter: brightness(1.1);
+}
+
+.project-node__thumb {
+  width: clamp(4.4rem, 7.5vw, 7.5rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 0.25rem;
+  background: linear-gradient(135deg, rgba(255, 248, 233, 0.2), rgba(242, 193, 102, 0.88));
+  box-shadow: 0 0 0 1px rgba(242, 193, 102, 0.42), 0 0 22px rgba(242, 193, 102, 0.55), 0 0 56px rgba(242, 193, 102, 0.18);
+}
+
+.project-node__thumb img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+  background: rgba(255,255,255,0.08);
+}
+
+.project-node__text {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 9rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, rgba(16, 6, 30, 0.62), rgba(16, 6, 30, 0.08));
+}
+
+.project-node__number {
+  color: var(--gold);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.7rem, 2.6vw, 2.6rem);
+  line-height: 1;
+}
+
+.project-node__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.25rem, 2vw, 2rem);
+  line-height: 1;
+}
+
+.project-node__link {
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.node-1 { left: 28%; top: 3%; }
+.node-2 { left: 38%; top: 22%; }
+.node-3 { left: 53%; top: 6%; }
+.node-4 { left: 68%; top: 25%; }
+.node-5 { left: 82%; top: 48%; }
+.node-6 { left: 72%; top: 64%; }
+.node-7 { left: 51%; top: 72%; }
+.node-8 { left: 4%;  top: 72%; }
+.node-9 { left: 6%;  top: 45%; }
+
+/* On smaller screens, columns collapse and oversized type scales down. */
+@media (max-width: 900px) {
+  .portfolio-home { overflow: auto; }
+  .site-header { align-items: flex-start; gap: 1rem; flex-direction: column; }
+  .hero-copy { margin-top: 2rem; }
+
+  .project-spiral {
+    position: relative;
+    display: grid;
+    gap: 1rem;
+    padding: 2rem 1.25rem 4rem;
+  }
+
+  .project-node {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 1.3rem;
+    background: rgba(16, 6, 30, 0.52);
+    backdrop-filter: blur(10px);
+  }
+
+  .project-node__text { background: transparent; }
+}
