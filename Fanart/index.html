@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fanart</title>
+    <meta name="description" content="Fanart" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&amp;family=Inter:wght@300;400;600;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="colors.css" />
+    <link rel="stylesheet" href="../shared.css" />
+</head>
+  <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__brand" href="../index.html">
+        Gaarg<span class="glow-i">i</span> Pandit
+        <span class="site-header__subtitle">Design &amp; Art</span>
+      </a>
+      <nav class="site-header__nav" aria-label="Primary navigation">
+        <a href="../index.html" aria-current="page">Portfolio</a>
+        <a href="../chronology/index.html">Chronology</a>
+        <a href="../categories/index.html">Categories</a>
+        <a href="../about.html">About</a>
+      </nav>
+    </div>
+  </header>
+    <main id="main-content">
+      <section class="mybanner" aria-labelledby="title">
+	<div class="mybanner__glow mybanner__glow--one"></div>
+	<div class="mybanner__glow mybanner__glow--two"></div>
+	<div class="mybanner__content">
+          <p class="keywords">Digital Art • Fan Art</p>
+          <h1 id="title">Fanart</h1>
+          <p class="subtitle">Selected fan art</p>
+          <div class="mybanner__actions">
+            <a href="#photo-gallery" class="button">Gallery</a>
+          </div>
+	</div>
+      </section>
+
+      <section class="photo-gallery" id="photo-gallery">
+	<div>
+	  <h2> Gallery </h2>
+	</div>
+	<div class="photo-gallery-pictures">
+	  <article>
+	    <button type="button" class="preview-trigger" popovertarget="photo1" popovertargetaction="show" aria-label="Open image preview: Fan art illustration" id="p1">
+              <img src="assets/Rocky.jpg" class="thumb" alt="Fan art illustration">
+	    </button>
+	    <p>Digital drawing of Odysseus and Rocky (Project Hail Mary), in the style of ancient Greek vase.</p> 
+	  </article>
+	  
+	  <article>
+	    <button type="button" class="preview-trigger" popovertarget="photo2" popovertargetaction="show" aria-label="Open image preview: Fan art illustration" id="p2">
+              <img src="assets/Zuko.jpg" class="thumb" alt="Fan art illustration">
+	    </button>
+	    <p>Digital drawing of Zuko (Avatar: the last Airbender)</p>
+	  </article>
+	  
+	  <article>
+	    <button type="button" class="preview-trigger" popovertarget="photo3" popovertargetaction="show" aria-label="Open image preview: Fan art illustration" id="p3">
+              <img src="assets/Aloy.jpg" class="thumb" alt="Fan art illustration">
+	    </button>
+	    <p>Digital drawing of Aloy (Horizon: Zero Dawn)</p>
+	  </article>
+	  
+	  <article>
+	    <button type="button" class="preview-trigger" popovertarget="photo4" popovertargetaction="show" aria-label="Open image preview: Fan art illustration" id="p4">
+              <img src="assets/Furina.jpg" class="thumb" alt="Fan art illustration">
+	    </button>
+	    <p>Digital drawing of Furina (Genshin Impact) enacting the signature scene from the movie <em>  Singin' in the Rain </em> </p>
+	  </article>
+
+    <article>
+	    <button type="button" class="preview-trigger" popovertarget="photo5" popovertargetaction="show" aria-label="Open image preview: Fan art illustration" id="p5">
+              <img src="assets/Bill.jpg" class="thumb" alt="Fan art illustration">
+	    </button>
+	    <p>Digital drawing of Bill Cipher (Gravity Falls) as an Eridian (Project Hail Mary).</p>
+	  </article>
+	</div>
+      </section>
+    </main>
+    
+
+
+    <!-- Gallery previews -->
+    <div id="photo1" class="preview" popover="auto" role="dialog" aria-label="Image preview">
+      <button type="button" class="close" popovertarget="photo1" popovertargetaction="hide" aria-label="Close image preview" autofocus>&times;</button>
+      <figure class="preview__figure">
+        <img src="assets/Rocky.jpg" alt="Fan art illustration">
+        <figcaption class="preview__caption" aria-hidden="true">Digital drawing of Odysseus and Rocky (Project Hail Mary), in the style of ancient Greek vase.</figcaption>
+      </figure>
+    </div>
+    <div id="photo2" class="preview" popover="auto" role="dialog" aria-label="Image preview">
+      <button type="button" class="close" popovertarget="photo2" popovertargetaction="hide" aria-label="Close image preview" autofocus>&times;</button>
+      <figure class="preview__figure">
+        <img src="assets/Zuko.jpg" alt="Fan art illustration">
+        <figcaption class="preview__caption" aria-hidden="true">Digital drawing of Zuko (Avatar, the last Airbender)</figcaption>
+      </figure>
+    </div>
+     <div id="photo3" class="preview" popover="auto" role="dialog" aria-label="Image preview">
+      <button type="button" class="close" popovertarget="photo3" popovertargetaction="hide" aria-label="Close image preview" autofocus>&times;</button>
+      <figure class="preview__figure">
+        <img src="assets/Aloy.jpg" alt="Fan art illustration">
+        <figcaption class="preview__caption" aria-hidden="true">Digital drawing of Aloy (Horizon: Zero Dawn)</figcaption>
+      </figure>
+     </div>
+      <div id="photo4" class="preview" popover="auto" role="dialog" aria-label="Image preview">
+      <button type="button" class="close" popovertarget="photo4" popovertargetaction="hide" aria-label="Close image preview" autofocus>&times;</button>
+      <figure class="preview__figure">
+        <img src="assets/Furina.jpg" alt="Fan art illustration">
+        <figcaption class="preview__caption" aria-hidden="true">Digital drawing of Furina (Genshin Impact) enacting the signature scene from the movie <em>  Singin' in the Rain </em></figcaption>
+      </figure>
+    </div>
+    <div id="photo5" class="preview" popover="auto" role="dialog" aria-label="Image preview">
+      <button type="button" class="close" popovertarget="photo5" popovertargetaction="hide" aria-label="Close image preview" autofocus>&times;</button>
+      <figure class="preview__figure">
+        <img src="assets/Bill.jpg" alt="Fan art illustration">
+        <figcaption class="preview__caption" aria-hidden="true">Digital drawing of Bill Cipher (Gravity Falls) as an Eridian (Project Hail Mary).</figcaption>
+      </figure>
+    </div>
+
+    <footer class="site-footer">
+  <p>The works in this gallery are personal fan artworks created for educational, practice, and fun purposes. All copyrighted characters, logos, and intellectual property belong to their respective owners. No affiliation with or endorsement by the original rights holders is implied.</p>
+</footer>
+   
+  </body>
+</html>
