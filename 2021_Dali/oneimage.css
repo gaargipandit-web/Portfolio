@@ -1,0 +1,138 @@
+/*
+  Page-specific visual theme. Keep this file focused on this page's unique
+  colors, typography, backgrounds, and content layout. Shared navigation,
+  footer, scrollbar, focus states, and image previews live in shared.css.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap');
+
+/* Theme tokens make palette and image changes deliberate and consistent. */
+:root {
+  --ink: #f8f4ee;
+  --muted: #cfc7be;
+  --night: #111827;
+  --blue: #1f2937;
+  --brown: #6b3f25;
+  --mypink: rgb(248,212,202);
+  --cream: #fff8e9;
+  --glass: rgba(255,255,255,.08);
+  --line: rgba(255,255,255,.16);
+  --pinklight: rgba(248,212,202,0.22);
+  --creamlight: rgba(255,248,233,0.22);
+  --bannerfile: url("assets/Dali_background.jpg");
+}
+
+/* Border-box keeps padding and borders inside an element's declared size. */
+* { box-sizing: border-box; }
+
+/* Smooth scrolling is enabled only when the visitor allows motion. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* The page canvas establishes the project's base color and reading type. */
+body {
+  margin: 0;
+  background: radial-gradient(circle at 70% 10%, var(--glass), transparent 28%), var(--night);
+  color: var(--ink);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, .button { font-family: Orbitron, Inter, sans-serif; }
+h1, h2, p { margin-top: 0; }
+h2 { font-size: clamp(1.8rem, 4vw, 3.3rem); line-height: 1.05; }
+p { color: var(--muted); font-size: 1.05rem; }
+
+/* The hero uses viewport-relative sizing so its opening image feels immersive. */
+.mybanner {
+  position: relative;
+  min-height: 100svh;
+  align-items: center;
+  padding: clamp(1.5rem, 4vw, 4rem);
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+
+/* A separate background layer lets us tint the image without fading the text. */
+.mybanner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(17,24,39,.96), rgba(17,24,39,.55)), var(--bannerfile) center/cover;
+  opacity: .42;
+  filter: saturate(.9);
+}
+
+/* Soft decorative glows add depth without becoming document content. */
+.mybanner__glow { position: absolute; border-radius: 50%; filter: blur(8px); opacity: .5; z-index: 1; }
+.mybanner__glow--one { width: 34rem; height: 34rem; right: 5%; top: 5%; background: var(--creamlight); }
+.mybanner__glow--two { width: 28rem; height: 28rem; left: 8%; bottom: 8%; background: var(--creamlight); }
+
+/* Hero content sits above the background and glow layers. */
+.mybanner__content { position: relative; z-index: 2; }
+
+.keywords { color: var(--mypink); letter-spacing: .18em; text-transform: uppercase; font-size: .8rem; }
+
+.mybanner h1 {
+     font-family: 'Cinzel', serif;
+     letter-spacing: 0.08em;
+     font-size: clamp(4rem, 12vw, 9.5rem);
+     line-height: .85;
+     letter-spacing: .08em;
+     text-transform: uppercase;
+     color: var(--cream);
+
+     text-shadow: 0 0 36px var(--creamlight);
+     margin-bottom: 1rem;
+ }
+h1 span { display: block; }
+
+.subtitle { max-width: 620px; font-size: clamp(1.25rem, 2vw, 1.8rem); color: var(--cream); }
+
+/* Flexible action links wrap cleanly when space becomes limited. */
+.mybanner__actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+
+.button {
+  display: inline-flex;
+  color: var(--night);
+  background: var(--cream);
+  text-decoration: none;
+  padding: .9rem 1.2rem;
+  border-radius: 999px;
+  font-size: .85rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.button--ghost { color: var(--ink); background: rgba(255,255,255,.1); border: 1px solid var(--line); }
+
+/* Content cards share spacing and grid behavior while retaining this project's palette. */
+.brief, .art {
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  backdrop-filter: blur(18px);
+}
+
+.brief { display: grid; grid-template-columns: 1.0fr 1.0fr; gap: 3rem; align-items: start; }
+
+.brief, .art { margin: clamp(2rem, 5vw, 4rem); padding: clamp(2rem, 5vw, 4rem) !important;}
+
+.brief p {font-size: clamp(1.25rem, 2vw, 1.5rem); color: var(--cream); text-align: justify; }
+
+/* The zoom cursor signals that a thumbnail opens the shared CSS preview. */
+.thumb {
+  width: 300px;
+  cursor: zoom-in;
+}
+
+/* On smaller screens, columns collapse and oversized type scales down. */
+@media (max-width: 820px) {
+  .mybanner, .brief { grid-template-columns: 1fr; }
+  .quick-facts, .process__steps { grid-template-columns: 1fr; }
+  h1 { font-size: clamp(3.3rem, 17vw, 6rem); }
+}
