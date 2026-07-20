@@ -1,6 +1,6 @@
 # Gaargi Pandit portfolio
 
-This is an HTML and CSS-only portfolio. Each project keeps its own visual theme—including its typography, palette, backgrounds, layouts, buttons, and galleries—while `shared.css` provides the site-wide navigation, sticky header, footer, scrollbar, keyboard focus treatment, and image-preview overlay.
+This is an HTML and CSS-only portfolio. Each project keeps its own visual theme—including its typography, palette, backgrounds, layouts, buttons, and galleries—while `shared.css` provides the site-wide navigation, sticky header, footer, scrollbar, keyboard focus treatment, and image-preview overlay. Small Change
 
 ## Consistency contract
 
